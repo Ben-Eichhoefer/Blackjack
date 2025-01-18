@@ -1,4 +1,6 @@
 class Card:
     def __init__(self,suit,value,type):
-        pass
+        self.suit = suit
+        self.value = value
+        self.type = type
 
