@@ -8,8 +8,6 @@ class Deck:
     def __init__(self):
         self.cards = []
 
-
-
     def shuffle_deck(self):
         for i in Suit:
             for j in Card_type:
@@ -21,4 +19,4 @@ class Deck:
 
     def hit(self):
         # pop from self.cards
-        pass
+        return self.cards.pop()
