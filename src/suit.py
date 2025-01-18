@@ -1,6 +1,6 @@
 from enum import Enum
 
-class suit(Enum):
+class Suit(Enum):
     SPADE = 0
     CLUBS = 1 
     HEARTS = 2

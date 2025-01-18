@@ -1,6 +1,6 @@
 from enum import Enum
 
-class card_type(Enum):
+class Card_type(Enum):
     ACE = 1
     TWO = 2
     THREE = 3

@@ -1,7 +1,7 @@
 import unittest
 from src.card import Card
-from src.card_type import card_type
-from src.suit import suit
+from src.card_type import Card_type
+from src.suit import Suit
 
 
 class CardTestCase(unittest.TestCase):
@@ -13,12 +13,12 @@ class CardTestCase(unittest.TestCase):
         pass
 
     def test_card_has_type(self):
-        card = Card(suit.CLUBS,None,card_type.ACE)
-        self.assertEqual(card.type, card_type.ACE)
+        card = Card(Suit.CLUBS,None,Card_type.ACE)
+        self.assertEqual(card.type, Card_type.ACE)
 
     def test_card_has_suit(self):
-        card = Card(suit.CLUBS,None,card_type.ACE)
-        self.assertEqual(card.suit, suit.CLUBS)
+        card = Card(Suit.CLUBS,None,Card_type.ACE)
+        self.assertEqual(card.suit, Suit.CLUBS)
     
 
     
