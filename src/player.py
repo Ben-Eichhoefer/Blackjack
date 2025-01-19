@@ -31,9 +31,12 @@ class Player:
         return choice
 
     # hit
+    # TODO add method to re-assign high ace if win possiblee
     def hit(self,card)->int:
         if card.type == Card_type.ACE and self.score + 11 > 21:
             card.value = 1
+        elif card.type == Card_type.ACE and self.score + 11 == 21:
+            card.value == 11
         elif card.type == Card_type.ACE:
             while True:
                 try:
