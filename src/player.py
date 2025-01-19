@@ -14,7 +14,17 @@ class Player:
                 1: Hit
                 2: Stand
         ''')
-        choice = int(input("Choice: "))
+        while True:
+            try:
+                choice = int(input("Choice: "))
+                break
+            except ValueError:
+                print("Please enter an integer")
+        if choice < 1:
+            choice = 1
+        if choice > 2:
+            choice =2
+
         if choice == 2:
             print("Stand! Your score: %s" % self.score)
             self.inPlay = False
@@ -25,7 +35,15 @@ class Player:
         if card.type == Card_type.ACE and self.score + 11 > 21:
             card.value = 1
         elif card.type == Card_type.ACE:
-            value = int(input(self.name+" - Please choose ace value (1 or 11): "))
+            while True:
+                try:
+                    value = int(input(self.name+" - Please choose ace value (1 or 11): "))
+                    if value == 1 or value == 11:
+                        break
+                    print("Please enter either 1 or 11")
+                except ValueError:
+                    print("Please enter an integer")
+            
             card.value = value
         self.score += card.value
         self.hand.append(card)

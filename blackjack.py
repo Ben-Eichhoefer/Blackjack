@@ -7,7 +7,17 @@ class Blackjack:
         self.players=[]
 
     def play(self):
-        num_players = int(input("Please select number of players(1-4)"))
+        while True:
+            try:
+                num_players = int(input("Please select number of players(1-4)"))
+                break
+            except ValueError:
+                print("Please enter an integer")
+        if num_players < 1:
+            num_players = 1
+        if num_players > 4:
+            num_players = 4
+        
         self.deck.shuffle_deck()
         self.players=[Player("Player_"+str(i)) for i in range(0,num_players)]
         running = self.deal()
