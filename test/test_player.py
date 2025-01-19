@@ -4,7 +4,7 @@ from src.player import Player
 from src.card import Card
 
 
-class DeckTestCase(unittest.TestCase):
+class PlayerTestCase(unittest.TestCase):
 
     def setUp(self):  # this method will be run before each test
         self.player = Player("test")
