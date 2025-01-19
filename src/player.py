@@ -13,5 +13,11 @@ class Player:
 
     # hit
     def hit(self,card):
-        pass
+        if card.type == Card_type.ACE and self.score + 11 > 21:
+            print("Choosing an ace value of 11 will cause a bust")
+        if card.type == Card_type.ACE:
+            value = int(input("Please choose ace value (1 or 11)"))
+            card.value = value
+        self.score += card.value
+        self.hand.append(card)
         
