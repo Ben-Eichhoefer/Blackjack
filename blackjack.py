@@ -27,13 +27,15 @@ class Blackjack:
                         print(p.name," is Bust")
                     continue
 
-                print("Hand: ",end="" )
+                print("Hand: ",end="| " )
                 for i in p.hand:
-                    print(i,end=" ")
+                    print(i,end=" | ")
                 print("")
                 choice = p.options()
                 if choice == 1:
-                    score = p.hit(self.deck.hit())
+                    card = self.deck.hit()
+                    print(p.name," - drew",card)
+                    score = p.hit(card)
                     if score >21:
                         print("Bust!")
                         p.inPlay = False
@@ -49,9 +51,13 @@ class Blackjack:
     # Return False if game ends
     def deal(self) -> bool:
         for p in self.players:
-            p.hit(self.deck.hit())
+            card = self.deck.hit()
+            print(p.name,"receives",card)
+            p.hit(card)
         for p in self.players:
-            score = p.hit(self.deck.hit())
+            card = self.deck.hit()
+            print(p.name,"receives",card)
+            score = p.hit(card)
             # If a player reaches 21 end game
             if score == 21:
                 print("Blackjack - Game Over\n" + p.name + " wins!")
