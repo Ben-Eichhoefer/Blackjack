@@ -47,7 +47,12 @@ class PlayerTestCase(unittest.TestCase):
         score = self.player.hit(Card(1,11,Card_type.ACE))
         self.assertEqual(score,1)
 
-
+    @patch('builtins.input', return_value='11')
+    def test_consecutive_aces(self,input):
+        score = self.player.hit(Card(1,11,Card_type.ACE))
+        self.assertEqual(score,11)
+        score = self.player.hit(Card(1,11,Card_type.ACE))
+        self.assertEqual(score,12)
 
 
 
