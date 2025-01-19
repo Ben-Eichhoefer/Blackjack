@@ -1,16 +1,16 @@
 from src.card_type import Card_type
 
 class Player:
-    def __init__(self):
+    def __init__(self,name):
         self.hand=[]
         self.score = 0
         #self.hole = hole
         self.inPlay = True
+        self.name=name
 
     # Present player with game options
     def options(self)->int:
-        choice = int(input('''
-            Please choose an action:\n
+        choice = int(input(self.name+''': Please choose an action:\n
                 1: Hit\n
                 2: Stand\n
         '''))
@@ -21,9 +21,9 @@ class Player:
     # hit
     def hit(self,card):
         if card.type == Card_type.ACE and self.score + 11 > 21:
-            print("Choosing an ace value of 11 will cause a bust")
+            print(self.name+": Choosing an ace value of 11 will cause a bust")
         if card.type == Card_type.ACE:
-            value = int(input("Please choose ace value (1 or 11)"))
+            value = int(input(self.name+":Please choose ace value (1 or 11)"))
             card.value = value
         self.score += card.value
         self.hand.append(card)

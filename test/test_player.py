@@ -7,7 +7,7 @@ from src.card import Card
 class DeckTestCase(unittest.TestCase):
 
     def setUp(self):  # this method will be run before each test
-        self.player = Player()
+        self.player = Player("test")
 
 
     def tearDown(self):  # this method will be run after each test
