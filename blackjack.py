@@ -50,8 +50,20 @@ class Blackjack:
                     # If player blackjack exit early
                     if score == 21:
                         print("Blackjack - Game Over\n" + p.name + " wins!")
-                        break
+                        return
                 running = running or p.inPlay # if player still in play running becomes True
+        highest = Player(False)
+        highest.score = 0
+        for p in self.players:
+            if p.score <= 21 and p.score > highest.score:
+                highest = p
+        if highest.name:
+            print(highest.name," wins!\nWith a score of:", highest.score)
+        else:
+            print("Everyone bust, house wins")
+            
+            
+
                     
         
 
