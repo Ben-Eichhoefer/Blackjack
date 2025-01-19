@@ -36,9 +36,7 @@ class Blackjack:
                     card = self.deck.hit()
                     print(p.name," - drew",card)
                     score = p.hit(card)
-                    if score >21:
-                        print("Bust!")
-                        p.inPlay = False
+                    
                     # If player blackjack exit early
                     if score == 21:
                         print("Blackjack - Game Over\n" + p.name + " wins!")

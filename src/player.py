@@ -35,4 +35,7 @@ class Player:
                 self.score -= 10
                 self.hand[p].value = 1
             p+=1
+        if self.score > 21:
+            self.inPlay = False
+            print("Bust!")
         return self.score
