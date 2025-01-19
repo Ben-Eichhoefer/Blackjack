@@ -14,3 +14,5 @@ class Card_type(Enum):
     JACK = 11
     QUEEN = 12
     KING = 13
+    def __str__(self):
+        return self.name[0] + self.name[1:].lower()
