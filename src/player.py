@@ -10,10 +10,11 @@ class Player:
 
     # Present player with game options
     def options(self)->int:
-        choice = int(input(self.name+''' -  Please choose an action:
+        print(self.name+''' -  Please choose an action:
                 1: Hit
                 2: Stand
-        '''))
+        ''')
+        choice = int(input("Choice: "))
         if choice == 2:    
             self.inPlay = False
         return choice

@@ -12,10 +12,28 @@ class Blackjack:
         self.players=[Player("Player_"+str(i)) for i in range(0,num_players)]
         running = self.deal()
 
-        if not running:
-            return # exit game
         for p in self.players:
             print(p.hand[0],p.hand[1])
+        if not running:
+            return # exit game
+        
+        
+        for p in self.players:
+            print("\n=========== " + p.name + "'s turn ===========\n")
+            if not p.inPlay:
+                continue
+
+            print("Hand: ",end="" )
+            for i in p.hand:
+                print(i,end=" ")
+            print("")
+            choice = p.options()
+            if choice == 1:
+                score = p.hit(self.deck.hit())
+                if score >21:
+                    print("Bust!")
+                    p.inPlay = False
+        
 
     # Deal a card to each player
     # Return False if game ends
