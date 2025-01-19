@@ -19,7 +19,7 @@ class Player:
         return choice
 
     # hit
-    def hit(self,card):
+    def hit(self,card)->int:
         if card.type == Card_type.ACE and self.score + 11 > 21:
             print(self.name+": Choosing an ace value of 11 will cause a bust")
         if card.type == Card_type.ACE:
@@ -27,4 +27,4 @@ class Player:
             card.value = value
         self.score += card.value
         self.hand.append(card)
-        
+        return self.score
