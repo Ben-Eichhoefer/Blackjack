@@ -1,10 +1,12 @@
 from src.card_type import Card_type
 
+'''
+Class representing a user player
+'''
 class Player:
     def __init__(self,name):
         self.hand=[]
         self.score = 0
-        #self.hole = hole
         self.inPlay = True
         self.name=name
 
@@ -20,19 +22,22 @@ class Player:
                 break
             except ValueError:
                 print("Please enter an integer")
+
         if choice < 1:
             choice = 1
         if choice > 2:
             choice =2
-
+        # Remove player from play
         if choice == 2:
             print("Stand! Your score: %s" % self.score)
             self.inPlay = False
         return choice
 
     # hit
-    # TODO add method to re-assign high ace if win possiblee
+    # TODO add method to re-assign high ace if win possible
     def hit(self,card)->int:
+        # automatically assign ace value if bust or win
+        # else let user choose ace value
         if card.type == Card_type.ACE and self.score + 11 > 21:
             card.value = 1
         elif card.type == Card_type.ACE and self.score + 11 == 21:
@@ -46,7 +51,6 @@ class Player:
                     print("Please enter either 1 or 11")
                 except ValueError:
                     print("Please enter an integer")
-            
             card.value = value
         self.score += card.value
         self.hand.append(card)

@@ -1,5 +1,8 @@
 from src.suit import Suit
 from src.card_type import Card_type
+'''
+Class representing a playing card
+'''
 class Card:
     def __init__(self,suit:Suit,value:int,type:Card_type):
         self.suit = suit

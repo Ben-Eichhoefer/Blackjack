@@ -1,5 +1,8 @@
 from enum import Enum
 
+'''
+Enumeration for card options
+'''
 class Card_type(Enum):
     ACE = 1
     TWO = 2

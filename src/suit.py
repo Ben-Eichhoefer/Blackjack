@@ -1,5 +1,8 @@
 from enum import Enum
 
+'''
+Enumeration for card suits
+'''
 class Suit(Enum):
     
     SPADE = 0

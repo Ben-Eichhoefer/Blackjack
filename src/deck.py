@@ -3,7 +3,9 @@ from src.card import Card
 from src.card_type import Card_type
 
 from random import shuffle
-
+'''
+Class representing a deck
+'''
 class Deck:
     def __init__(self):
         self.cards = []

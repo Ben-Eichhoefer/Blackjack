@@ -1,11 +1,15 @@
 from src.deck import Deck
 from src.player import Player
 
+'''
+A class for a game of blackjack
+'''
 class Blackjack:
     def __init__(self):
         self.deck = Deck()
         self.players=[]
-
+    
+    # Entry point for a game of blackjack
     def play(self):
         while True:
             try:
@@ -19,9 +23,11 @@ class Blackjack:
             num_players = 4
         
         self.deck.shuffle_deck()
+        # Create player objects
         self.players=[Player("Player_"+str(i)) for i in range(0,num_players)]
         running = self.deal()
 
+        # if player gets dealt blackjack
         if not running:
             return # exit game
         
@@ -41,6 +47,7 @@ class Blackjack:
                 for i in p.hand:
                     print(i,end=" | ")
                 print("")
+                # handle player round actions
                 choice = p.options()
                 if choice == 1:
                     card = self.deck.hit()
@@ -52,6 +59,8 @@ class Blackjack:
                         print("Blackjack - Game Over\n" + p.name + " wins!")
                         return
                 running = running or p.inPlay # if player still in play running becomes True
+
+        # if no 21 determine highest score
         highest = Player(False)
         highest.score = 0
         for p in self.players:
@@ -61,7 +70,7 @@ class Blackjack:
             print(highest.name," wins!\nWith a score of:", highest.score)
         else:
             print("Everyone bust, house wins")
-            
+
             
 
                     
