@@ -10,9 +10,9 @@ class Player:
 
     # Present player with game options
     def options(self)->int:
-        choice = int(input(self.name+''': Please choose an action:\n
-                1: Hit\n
-                2: Stand\n
+        choice = int(input(self.name+''' -  Please choose an action:
+                1: Hit
+                2: Stand
         '''))
         if choice == 2:    
             self.inPlay = False
@@ -23,7 +23,7 @@ class Player:
         if card.type == Card_type.ACE and self.score + 11 > 21:
             print(self.name+": Choosing an ace value of 11 will cause a bust")
         if card.type == Card_type.ACE:
-            value = int(input(self.name+":Please choose ace value (1 or 11)"))
+            value = int(input(self.name+" - Please choose ace value (1 or 11): "))
             card.value = value
         self.score += card.value
         self.hand.append(card)
