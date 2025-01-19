@@ -1,5 +1,8 @@
 import unittest
 from src.deck import Deck
+from src.card import Card
+from src.card_type import Card_type
+from src.suit import Suit
 
 
 class DeckTestCase(unittest.TestCase):
@@ -25,6 +28,13 @@ class DeckTestCase(unittest.TestCase):
         len_deck_before = len(self.deck.cards)
         _ = self.deck.hit()
         self.assertLess(len(self.deck.cards),len_deck_before)
+    
+    # Test each card type appears once 
+    def test_deck_unique(self):
+        seen = set()
+        for i in self.deck.cards:
+            self.assertFalse((i.suit,i.type) in seen, "Violated card uniqueness")
+            seen.add((i.suit,i.type))
         
 
 
