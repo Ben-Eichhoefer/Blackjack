@@ -15,17 +15,24 @@ class Player:
                 2: Stand
         ''')
         choice = int(input("Choice: "))
-        if choice == 2:    
+        if choice == 2:
+            print("Stand! Your score: %s" % self.score)
             self.inPlay = False
         return choice
 
     # hit
     def hit(self,card)->int:
         if card.type == Card_type.ACE and self.score + 11 > 21:
-            print(self.name+": Choosing an ace value of 11 will cause a bust")
-        if card.type == Card_type.ACE:
+            card.value = 1
+        elif card.type == Card_type.ACE:
             value = int(input(self.name+" - Please choose ace value (1 or 11): "))
             card.value = value
         self.score += card.value
         self.hand.append(card)
+        p=0
+        while(self.score >21 and p < len(self.hand)):
+            if self.hand[p].value == 11:
+                self.score -= 10
+                self.hand[p].value = 1
+            p+=1
         return self.score
