@@ -9,7 +9,14 @@ class Player:
 
     # Present player with game options
     def options(self)->int:
-        pass
+        choice = int(input('''
+            Please choose an action:\n
+                1: Hit\n
+                2: Stand\n
+        '''))
+        if choice == 2:    
+            self.inPlay = False
+        return choice
 
     # hit
     def hit(self,card):
